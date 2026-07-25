@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Company - BookMyService</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="text-white" style="background-color: #4486e8;">
+
+    <nav class="navbar px-4 shadow-sm" style="background-color: #313335;">
+        <a class="navbar-brand fw-bold fs-3" href="/services">
+            <span style="color:#f6f7f8;">Book</span><span style="color: #4486e8;">My</span><span style="color: #f6f7f8;">Service</span>
+        </a>
+        <div class="d-flex align-items-center">
+            <a href="/services" class="btn btn-outline-light btn-sm rounded-pill px-3">Services</a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        
+        {% if companies %}
+            <h2 class="text-center mb-4 fw-bold text-white" style="font-family: Segoe UI;">Select Provider for {{ service_name }}</h2>
+            
+            <div class="row mt-4">
+                {% for company in companies %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg border-0 h-100" style="background-color: #313335;">
+                        <div class="card-body text-center p-4 d-flex flex-column justify-content-between">
+                            <div>
+                                <h4 class="fw-bold mb-2 text-white" style="font-family: Segoe UI;">{{ company[0] }}</h4>
+                                <p class="text-warning small mb-2">⭐ Rating: <strong>{{ company[4] }}</strong></p>
+                                <p class="text-light small mb-1">📍 <strong>Location:</strong> {{ company[3] }}</p>
+                                <p class="text-light small mb-1">📞 <strong>Contact:</strong> {{ company[1] }}</p>
+                                <p class="text-light small mb-3">🌐 <a href="https://{{ company[2] }}" target="_blank" class="text-info text-decoration-none">{{ company[2] }}</a></p>
+                            </div>
+                            
+                            <a href="/book?company_name={{ company[0] }}&service={{ service_name }}" class="btn fw-bold text-dark mt-2 shadow-sm bg-light" style="font-family: Segoe UI;">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center my-5">
+                <h2 class="fw-bold text-white" style="font-family: Segoe UI;">{{ service_name }} is not available currently, Sorry for inconvenience.</h2>
+                <p class="text-light mt-2">Please check back later or choose another service.</p>
+                <a href="/services" class="btn btn-light fw-bold mt-3 px-4 rounded-pill">Back to Services</a>
+            </div>
+        {% endif %}
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
