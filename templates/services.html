@@ -8,19 +8,28 @@
 </head>
 <body class="text-white" style="background-color: #4486e8;">
 
-    <nav class="navbar px-4 shadow-sm" style="background-color: #313335;">
-        <a class="navbar-brand fw-bold fs-3" href="/services">
-            <span style="color:#f6f7f8;">Book</span><span style="color: #4486e8;">My</span><span style="color: #f6f7f8;">Service</span>
-        </a>
-        <div class="d-flex align-items-center">
-            <span class="me-3 fs-6 text-light">Welcome, <strong style="color: #4486e8;">{{ username }}</strong></span>
-            <a href="/dashboard" class="btn btn-outline-light btn-sm me-2">Dashboard</a>
-            <a href="/logout" class="btn btn-sm text-dark fw-bold" style="background-color: #4486e8;">Logout</a>
+    <nav class="navbar navbar-expand-md px-3 px-md-4 shadow-sm" style="background-color: #313335;">
+        <div class="container-fluid px-0">
+            <a class="navbar-brand fw-bold fs-3" href="/services">
+                <span style="color:#f6f7f8;">Book</span><span style="color: #4486e8;">My</span><span style="color: #f6f7f8;">Service</span>
+            </a>
+            <button class="navbar-toggler border-0 text-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end mt-3 mt-md-0" id="navbarContent">
+                <div class="d-flex flex-column flex-md-row align-items-stretch align-items-md-center gap-2 gap-md-3">
+                    <span class="fs-6 text-light text-center text-md-start">Welcome, <strong style="color: #4486e8;">{{ username }}</strong></span>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <a href="/dashboard" class="btn btn-outline-light btn-sm flex-fill flex-md-grow-0">Dashboard</a>
+                        <a href="/logout" class="btn btn-sm text-dark fw-bold flex-fill flex-md-grow-0" style="background-color: #4486e8;">Logout</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <div class="container py-5">
-        <div class="text-center mb-5 p-4 rounded shadow border-0" style="background-color: #4486e8;">
+    <div class="container py-4 py-md-5">
+        <div class="text-center mb-4 mb-md-5 p-4 rounded shadow border-0" style="background-color: #4486e8;">
             <h1 class="fw-bold text-white" style="font-family: Segoe UI;">Our Services</h1>
             <p class="text-white mb-0" style="font-family: Segoe UI;"><strong>Choose a service below to find verified professionals near you.</strong></p>
         </div>
@@ -47,5 +56,6 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
