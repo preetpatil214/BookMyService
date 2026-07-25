@@ -1,16 +1,18 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 import mysql.connector
+import os
 from datetime import date, datetime
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'
+app.secret_key = os.environ.get('SECRET_KEY', 'your_secret_key_here')
 
 def get_db_connection():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="preet@1414",
-        database="sps"
+        host=os.environ.get('DB_HOST', 'localhost'),
+        user=os.environ.get('DB_USER', 'root'),
+        password=os.environ.get('DB_PASSWORD', 'preet@1414'),
+        database=os.environ.get('DB_NAME', 'sps'),
+        port=int(os.environ.get('DB_PORT', 3306))
     )
 
 @app.route('/')
