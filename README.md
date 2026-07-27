@@ -4,6 +4,8 @@
 
 A student project developed using Python, Flask, HTML, CSS, and MySQL. BookMyService is a web-based service booking platform that allows users to explore service categories, view service providers, and book appointments through a simple and user-friendly interface.
 
+DEMO LINK : https://book-my-service-bms.vercel.app/
+
 </div>
 
 ## Features
